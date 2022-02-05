@@ -99,6 +99,6 @@ const gameOver = (resp) => {
 
 
 const getWord = () => {
-    const newWord = document.querySelector("#new-word");
+    const newWord = document.querySelector("#novaPalavra");
     newWord.value = newWord.value.replace(/[^A-Z]/ig,"").toUpperCase();
 }
