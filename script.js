@@ -89,9 +89,9 @@ document.querySelector("body").addEventListener('keypress', (e) => {
     gameOver(resp);
 });
 
-const gameOver = (resp) => {
-    if(erros.length === 10 || resp == word) {
-        document.querySelector('.mensagemFinal').innerHTML = (resp == word) ? 
+const gameOver = (tentativa) => {
+    if(erros.length === 10 || tentativa == palavra) {
+        document.querySelector('.mensagemFinal').innerHTML = (tentativa == palavra) ? 
                         'Você Venceu. Parabéns!' : 'Você perdeu! Jogue novamente!';
         inicio = false;
     }
