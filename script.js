@@ -10,8 +10,8 @@ btnComecar.addEventListener('click', async () => {
     let cadaPalavra = palavras[index];
     const secret = document.querySelector(".palavraSecreta");
     secret.innerHTML = '';
-    for(let i = 0; i < word.length; i++) {
-        const value = word[i] == '-' ? '- ' : word[i] == '\'' ? '\' ' : '_ ';
+    for(let i = 0; i < cadaPalavra.length; i++) {
+        const value = cadaPalavra[i] == '-' ? '- ' : cadaPalavra[i] == '\'' ? '\' ' : '_ ';
         secret.innerHTML += value;
     }
     inicio = true;
@@ -25,7 +25,7 @@ const reset = (desistir) => {
         document.getElementById(`r${i}`).style.border = '1px solid #E5E5E5';
     }
     count = 14;
-    document.querySelector('.msg-final').innerHTML = '';
+    document.querySelector('.mensagemFinal').innerHTML = '';
     document.querySelector('.erros').innerHTML = erros = [];
     document.getElementById('addPalavras').style.display = desistir ? 'block' : 'none';
     document.getElementById('addPalavra').style.display = desistir ? 'block' : 'none';
@@ -70,7 +70,7 @@ document.querySelector("body").addEventListener('keypress', (e) => {
 
     const letra = e.key.toUpperCase();
     if(!letra.match(/[A-Z]/i) || erros.length === 10 || !inicio) return;
-    if(word.indexOf(letra) < 0 && erros.indexOf(letra) < 0) {
+    if(palavras.indexOf(letra) < 0 && erros.indexOf(letra) < 0) {
         erros.push(letra);       
         document.querySelector('.erros').innerHTML = erros.join(' ');
         document.getElementById(`r${count++}`).style.background = '#0A3871';
