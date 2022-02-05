@@ -1,10 +1,13 @@
 const btnComecar = document.querySelector(".btnComecar");
 const addPalavra = document.querySelector(".addPalavra");
+let palavras = [amreica, amendoin, jardim];
+let inicio = false;
+let erros = [];
 
 btnComecar.addEventListener('click', async () => {
     btnComecar.textContent = 'Novo Jogo';
-    const index = Math.floor(Math.random() * words.length);
-    word = words[index];
+    const index = Math.floor(Math.random() * palavras.length);
+    let cadaPalavra = palavras[index];
     const secret = document.querySelector(".palavraSecreta");
     secret.innerHTML = '';
     for(let i = 0; i < word.length; i++) {
@@ -22,7 +25,7 @@ const reset = (desistir) => {
         document.getElementById(`r${i}`).style.border = '1px solid #E5E5E5';
     }
     count = 14;
-    document.querySelector('.mensgem-final').innerHTML = '';
+    document.querySelector('.msg-final').innerHTML = '';
     document.querySelector('.erros').innerHTML = erros = [];
     document.getElementById('addPalavras').style.display = desistir ? 'block' : 'none';
     document.getElementById('addPalavra').style.display = desistir ? 'block' : 'none';
@@ -58,7 +61,7 @@ const reset = (desistir) => {
 
 document.getElementById('desistir').addEventListener('click', () => {
     reset(true);
-    document.querySelector('.mensagemfinal').innerHTML = '';
+    document.querySelector('.mensagemFinal').innerHTML = '';
     inicio = false;
 });
 
@@ -93,6 +96,6 @@ const gameOver = (resp) => {
 
 
 const getWord = () => {
-    const newWord = document.querySelector("novaPalavra");
+    const newWord = document.querySelector("#new-word");
     newWord.value = newWord.value.replace(/[^A-Z]/ig,"").toUpperCase();
 }
