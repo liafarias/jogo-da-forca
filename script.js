@@ -5,7 +5,7 @@ btnComecar.addEventListener('click', async () => {
     btnComecar.textContent = 'Novo Jogo';
     const index = Math.floor(Math.random() * words.length);
     word = words[index];
-    const secret = document.querySelector(".word-secret");
+    const secret = document.querySelector(".palavraSecreta");
     secret.innerHTML = '';
     for(let i = 0; i < word.length; i++) {
         const value = word[i] == '-' ? '- ' : word[i] == '\'' ? '\' ' : '_ ';
@@ -22,7 +22,7 @@ const reset = (desistir) => {
         document.getElementById(`r${i}`).style.border = '1px solid #E5E5E5';
     }
     count = 14;
-    document.querySelector('.msg-final').innerHTML = '';
+    document.querySelector('.mensgem-final').innerHTML = '';
     document.querySelector('.erros').innerHTML = erros = [];
     document.getElementById('addPalavras').style.display = desistir ? 'block' : 'none';
     document.getElementById('addPalavra').style.display = desistir ? 'block' : 'none';
@@ -58,7 +58,7 @@ const reset = (desistir) => {
 
 document.getElementById('desistir').addEventListener('click', () => {
     reset(true);
-    document.querySelector('.msg-final').innerHTML = '';
+    document.querySelector('.mensagemfinal').innerHTML = '';
     inicio = false;
 });
 
@@ -74,7 +74,7 @@ document.querySelector("body").addEventListener('keypress', (e) => {
         gameOver(null);
         return;
     }    
-    const secret = document.querySelector(".palavra-secreta");
+    const secret = document.querySelector(".palavraSecreta");
     secret.innerHTML = word.split('').map((l,i) => {
         if(l === letra) return '<u>'+l+'</u>'+' ';
         else return '<u>'+secret.textContent.replace(/\s+/g, '').split('')[i]+'</u>'+' ';
@@ -85,7 +85,7 @@ document.querySelector("body").addEventListener('keypress', (e) => {
 
 const gameOver = (resp) => {
     if(erros.length === 10 || resp == word) {
-        document.querySelector('.msg-final').innerHTML = (resp == word) ? 
+        document.querySelector('.mensagemFinal').innerHTML = (resp == word) ? 
                         'Você Venceu. Parabéns!' : 'Você perdeu! Jogue novamente!';
         inicio = false;
     }
@@ -93,6 +93,6 @@ const gameOver = (resp) => {
 
 
 const getWord = () => {
-    const newWord = document.querySelector("#new-word");
+    const newWord = document.querySelector("novaPalavra");
     newWord.value = newWord.value.replace(/[^A-Z]/ig,"").toUpperCase();
 }
