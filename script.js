@@ -1,18 +1,5 @@
 const btnComecar = document.querySelector(".btnComecar");
 const addPalavra = document.querySelector(".addPalavra");
-let word = '';
-let inicio = false;
-let erros = [];
-let count = 14; 
-let words = [];
-
-
-(async () => {
-    words = await fetch('https://raw.githubusercontent.com/trainingOracle/jogo-da-forca/main/js/wordlist_pt_br.txt')
-    .then(response => response.text())
-    .then((response) => response.split('\n'))
-    .catch(err => ['ERRO']);
-})();
 
 btnComecar.addEventListener('click', async () => {
     btnComecar.textContent = 'Novo Jogo';
@@ -87,7 +74,7 @@ document.querySelector("body").addEventListener('keypress', (e) => {
         gameOver(null);
         return;
     }    
-    const secret = document.querySelector(".word-secret");
+    const secret = document.querySelector(".palavra-secreta");
     secret.innerHTML = word.split('').map((l,i) => {
         if(l === letra) return '<u>'+l+'</u>'+' ';
         else return '<u>'+secret.textContent.replace(/\s+/g, '').split('')[i]+'</u>'+' ';
@@ -98,7 +85,6 @@ document.querySelector("body").addEventListener('keypress', (e) => {
 
 const gameOver = (resp) => {
     if(erros.length === 10 || resp == word) {
-        document.querySelector('.msg-final').style.color = (resp == word) ? 'green' : 'red';
         document.querySelector('.msg-final').innerHTML = (resp == word) ? 
                         'Você Venceu. Parabéns!' : 'Você perdeu! Jogue novamente!';
         inicio = false;
