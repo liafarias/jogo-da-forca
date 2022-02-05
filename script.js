@@ -1,8 +1,11 @@
 const btnComecar = document.querySelector(".btnComecar");
 const addPalavra = document.querySelector(".addPalavra");
-let palavras = [amreica, amendoin, jardim];
+let palavras = [amereica, amendoin, jardim, computador, transporte, livraria, tecnologia, monitor, brinquedos];
+let palavra = palavras.length
 let inicio = false;
-let erros = [];
+let desenho = [];
+let acertos = [];
+let erros = 0;
 
 btnComecar.addEventListener('click', async () => {
     btnComecar.textContent = 'Novo Jogo';
@@ -78,7 +81,7 @@ document.querySelector("body").addEventListener('keypress', (e) => {
         return;
     }    
     const secret = document.querySelector(".palavraSecreta");
-    secret.innerHTML = word.split('').map((l,i) => {
+    secret.innerHTML = palavras.split('').map((l,i) => {
         if(l === letra) return '<u>'+l+'</u>'+' ';
         else return '<u>'+secret.textContent.replace(/\s+/g, '').split('')[i]+'</u>'+' ';
     }).join('');
