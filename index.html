@@ -1,32 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./style.css">
-    <title>Jogo da Forca</title>
-    <link rel="shortcut icon" href="./img/EBGK2oya_400x400.jpg" />
-  </head>
-  <body>
+<html lang="pt-br">
+    <head>
+        <title>CFB Cursos - Javascript</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
 
-      <main>
-
-        <article class="paginaInicial" id="paginaInicial">
-            <section class="addPalavras" id="addPalavras">
-                <h1 id="h1">Digite uma palavra ou frase</h1>
-                <textarea cols="30" rows="10" id="new-word" type="text" onkeyup="getWord()" 
-                onkeydown="getWord()" placeholder="Escreva uma nova palavra" style="resize: none"></textarea>
-            </section>
-        <div class="buttons" id="buttons">
-            <button id="addPalavra" class="addPalavra">Adicionar</button>
-            <button class="btnComecar" id="btnComecar">Começar a jogar</button>
+        <div id="dvmenu" class="dvdisplay">
+            <button onclick="inicia()">Nova palavra</button>
         </div>
-        </article>  
-
-        <!--Modal-->
-        <article class="display">
-          <button class="">Novo Jovo</button>
-          <div id="palavra">
+        <div id="dvplavra" class="dvdisplay">
             <input type="text" id="letra0" class="letra" maxlength="1">
             <input type="text" id="letra1" class="letra" maxlength="1">
             <input type="text" id="letra2" class="letra" maxlength="1">
@@ -47,23 +31,24 @@
             <input type="text" id="letra17" class="letra" maxlength="1">
             <input type="text" id="letra18" class="letra" maxlength="1">
             <input type="text" id="letra19" class="letra" maxlength="1">
-          </div>
+        </div>
+        <div id="dvjogador" class="dvdisplay">
+            <div id="controlesJogador">
+                <input type="text" id="letraJ" class="letraJ" maxlength="1" onclick="jogar()">
+                <button>jogar</button>
+                <div id="dvmsg"></div><br>
+                <div id="dvletrasdigitadas">Letras Digitadas:</div>
+            </div>
+            <div id="dvForca">
+                <img id="cabeca" src="cabeca1.png">
+                <img id="corpo" src="corpo.png">
+                <img id="bracoE" src="bracoE.png">
+                <img id="bracoD" src="bracoD.png">
+                <img id="pernaE" src="pernaE.png">
+                <img id="pernaD" src="pernaD.png">
+            </div> 
+        </div>
 
-          <div>
-            <id id="letrasDigitadas">Erros:</id>
-          </div>
-
-          <div id="forca">
-            <img id="cabeça" alt="">
-            <img id="corpo" alt="">
-            <img id="braço" alt="">
-            <img id="permn1" alt="">
-          </div>
-
-        </article>
-  
-  </body>
-
-  <script src="/script.js"></script>
-
+        <script src="./script.js"></script>
+    </body>
 </html>
